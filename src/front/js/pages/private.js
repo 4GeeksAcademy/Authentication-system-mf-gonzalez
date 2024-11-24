@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
- const Private = props => {
+const Private = props => {
 	const { store, actions } = useContext(Context);
 
 	const navigate = useNavigate();

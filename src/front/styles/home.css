@@ -5,3 +5,27 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+body {
+    background-color: #E6E6FA; /* Lila */
+}
+
+.btn-pink {
+    background-color: #FF69B4; /* Rosado */
+    border-color: #FF69B4;
+}
+
+.btn-pink:hover {
+    background-color: #FF1493; /* Rosado oscuro */
+    border-color: #FF1493;
+}
+
+.btn-orange {
+    background-color: #FFA500; /* Naranja */
+    border-color: #FFA500;
+}
+
+.btn-orange:hover {
+    background-color: #FF8C00; /* Naranja oscuro */
+    border-color: #FF8C00;
+}

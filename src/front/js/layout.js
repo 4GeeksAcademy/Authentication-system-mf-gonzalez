@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
@@ -11,9 +11,9 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
-import Register from "./pages/register";
+import Signup from "./pages/signup";
 import Login from "./pages/login"
-import Private from "./pages/private"
+import Private from "/workspaces/Authentication-system-mf-gonzalez/src/front/js/pages/private.js"
 
 
 //create your first component
@@ -23,6 +23,7 @@ const Layout = () => {
     const basename = process.env.BASENAME || "";
 
     if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
+    const isAuthenticated = sessionStorage.getItem("token");
 
     return (
         <div>
@@ -35,9 +36,10 @@ const Layout = () => {
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
 
-                        <Route element={<Register/>} path="/register"/>
+                        <Route element={<Signup/>} path="/signup"/>
                         <Route element={<Login/>} path="/login"/>
                         <Route element={<Private />} path="/private" />
+                        <Route path="*" element={<Navigate to="/login" />} />
                     </Routes>
                     <Footer />
                 </ScrollToTop>

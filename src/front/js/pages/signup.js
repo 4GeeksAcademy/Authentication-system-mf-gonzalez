@@ -1,46 +1,31 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Context } from '../store/appContext';
-import "../../styles/home.css";
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
     const { store, actions } = useContext(Context);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
 
-        console.log('Email:', email);
-        console.log('Password:', password);
-
-        const result = await actions.login(email, password);
+        const result = await actions.Signup(email, password);
         if (result) {
-
             setEmail("");
             setPassword("");
-            navigate("/private");
+            navigate("/login");
+            alert("Usuario registrado con éxito");
         } else {
-
-            alert("No se pudo iniciar sesión");
+            alert("Error al registrar el usuario");
         }
-
     };
 
-
-    useEffect(() => {
-        if (store.user) {
-            navigate("/private");
-        }
-    }, [store.user]);
-
     return (
-        <div className="login-container container">
-            <h2 className="my-3">Login</h2>
+        <div className="container">
             <form onSubmit={handleSubmit}>
-
+                <h2 className="mt-3 mb-3">Registrate</h2>
                 <div className="mb-3">
                     <label htmlFor="formGroupExampleInput" className="form-label">Email</label>
                     <input
@@ -63,12 +48,10 @@ const Login = () => {
                     />
                 </div>
 
-                <button className="btn btn-pink me-3" type="button">Iniciar Sesion</button>
-                <Link to="/signup" className="btn btn-link">No estas registrado?</Link>
+                <button className="btn btn-pink me-3" type="button">Registrate</button>
             </form>
-
         </div>
     );
 };
 
-export default Login;
+export default Signup;

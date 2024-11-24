@@ -1,0 +1,13 @@
+.navbar-custom {
+    background-color: #800080; /* Morado */
+    color: white;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: white;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #d3d3d3; /* Gris claro */
+}
