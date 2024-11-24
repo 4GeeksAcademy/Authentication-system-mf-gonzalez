@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/home.css";
 
 
 const Private = props => {
@@ -23,10 +24,10 @@ const Private = props => {
 
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4">Hello Welcome!, {store.user ? store.user.email : "user"}!</h1>
+			<h1 className="display-4">Bienvenido a nuestra aplicacion, {store.user ? store.user.email : "user"}!</h1>
 
 			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button"
+				<span className="btn btn-pink" href="#" role="button"
 					onClick={handleLogout}
 				>
 					logout
